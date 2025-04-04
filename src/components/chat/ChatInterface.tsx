@@ -144,9 +144,9 @@ const ChatInterface = () => {
                   Ask me below about your situation, and I'll explain what it all means in language that actually makes sense.
                 </p>
                 
-                {/* Feature items in a responsive layout - UPDATED for better mobile display */}
-                <div className="flex flex-col mt-8 mx-auto">
-                  <div className="flex flex-row justify-center gap-2 mb-2">
+                {/* Feature items in a responsive layout - UPDATED for desktop and mobile */}
+                <div className="flex flex-col md:flex-row md:justify-center md:gap-4 mt-8 mx-auto">
+                  <div className="flex flex-row justify-center gap-2 mb-2 md:mb-0">
                     <div className="flex items-center justify-center bg-[#FFF9E5] border border-[#E9DFA8] rounded-full py-1.5 px-3 whitespace-nowrap">
                       <Clock className="text-amber-700 mr-1.5" size={16} />
                       <span className="text-amber-800 font-medium text-xs">Available 24/7</span>
@@ -158,7 +158,7 @@ const ChatInterface = () => {
                     </div>
                   </div>
                   
-                  <div className="flex justify-center">
+                  <div className="flex justify-center md:justify-start">
                     <div className="flex items-center justify-center bg-[#FFF9E5] border border-[#E9DFA8] rounded-full py-1.5 px-3 whitespace-nowrap">
                       <Users className="text-amber-700 mr-1.5" size={16} />
                       <span className="text-amber-800 font-medium text-xs">For The People</span>
