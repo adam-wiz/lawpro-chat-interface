@@ -18,9 +18,9 @@ const ChatMessage: React.FC<ChatMessageProps> = ({ message }) => {
   return (
     <div className={`flex ${isUser ? 'justify-end' : 'justify-start'}`}>
       <div
-        className={`max-w-[80%] md:max-w-[70%] rounded-lg ${
+        className={`max-w-[80%] md:max-w-[70%] ${
           isUser
-            ? 'bg-blue-500 text-white py-2 px-3 rounded-2xl' // iPhone-like bubble for user messages
+            ? 'bg-blue-500 text-white py-2 px-3 rounded-3xl' // More rounded corners and adjusted padding
             : 'text-gray-800' // No background for LawPro messages
         }`}
       >
