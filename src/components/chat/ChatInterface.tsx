@@ -142,8 +142,8 @@ const ChatInterface = () => {
                   Ask me below about your situation, and I'll explain what it all means in language that actually makes sense.
                 </p>
                 
-                {/* Feature items in a horizontal row */}
-                <div className="flex justify-between gap-2 mt-8">
+                {/* Feature items in a horizontal row - UPDATED HERE */}
+                <div className="flex justify-center gap-4 mt-8 max-w-md mx-auto">
                   <div className="flex items-center justify-center bg-[#FFF9E5] border border-[#E9DFA8] rounded-full py-1.5 px-3 whitespace-nowrap">
                     <Clock className="text-amber-700 mr-1.5" size={16} />
                     <span className="text-amber-800 font-medium text-xs">Available 24/7</span>
@@ -160,7 +160,7 @@ const ChatInterface = () => {
                   </div>
                 </div>
                 
-                {/* New chat input area - UPDATED HERE */}
+                {/* New chat input area */}
                 <div className="mt-10 w-full max-w-3xl mx-auto">
                   <div className="rounded-2xl shadow-lg border border-gray-200 bg-white overflow-hidden">
                     <div className="p-4">
