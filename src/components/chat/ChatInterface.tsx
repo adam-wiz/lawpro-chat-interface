@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Search, Mic, Plus, MoreHorizontal, Clock, Lock, Users, Send } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -30,14 +29,32 @@ const ChatInterface = () => {
   const [placeholderIndex, setPlaceholderIndex] = useState(0);
   const isMobile = useIsMobile();
 
-  // Array of rotating placeholder questions
+  // Array of rotating placeholder questions - UPDATED with more legal categories
   const placeholders = [
-    "ask your legal question here...",
+    "Ask your legal question here...",
     "Do I need to tell my employer about a DUI?",
     "What's the average settlement for a truck accident?",
     "How do I fight a wrongful eviction?",
     "Can I sue my neighbor for property damage?",
     "What happens if I can't pay child support?",
+    // Family Law
+    "How is child custody determined in my state?",
+    "What's the difference between legal separation and divorce?",
+    "Can I modify my existing child support agreement?",
+    "How long does the divorce process typically take?",
+    "What are grandparents' rights regarding visitation?",
+    // Criminal Law
+    "What's the difference between a felony and misdemeanor?",
+    "Should I accept a plea bargain in my case?",
+    "How can I get my criminal record expunged?",
+    "What are my rights during a police search?",
+    "Can a DUI be reduced to a lesser charge?",
+    // Personal Injury
+    "How long do I have to file a personal injury claim?",
+    "Who pays my medical bills after a car accident?",
+    "Can I sue if I slipped and fell in a store?",
+    "What compensation can I get for a workplace injury?",
+    "How does insurance factor into my injury case?",
   ];
 
   // Effect for rotating placeholders
