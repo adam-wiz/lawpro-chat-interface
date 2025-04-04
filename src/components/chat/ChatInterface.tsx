@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Search, Mic, Plus, MoreHorizontal, Clock, Lock, Users, Send } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -27,7 +27,27 @@ const ChatInterface = () => {
   const [inputValue, setInputValue] = useState('');
   const [userName, setUserName] = useState('');
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [placeholderIndex, setPlaceholderIndex] = useState(0);
   const isMobile = useIsMobile();
+
+  // Array of rotating placeholder questions
+  const placeholders = [
+    "ask your legal question here...",
+    "Do I need to tell my employer about a DUI?",
+    "What's the average settlement for a truck accident?",
+    "How do I fight a wrongful eviction?",
+    "Can I sue my neighbor for property damage?",
+    "What happens if I can't pay child support?",
+  ];
+
+  // Effect for rotating placeholders
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setPlaceholderIndex((prevIndex) => (prevIndex + 1) % placeholders.length);
+    }, 3000); // Change every 3 seconds
+
+    return () => clearInterval(interval);
+  }, []);
 
   const handleSendMessage = () => {
     if (!inputValue.trim()) return;
@@ -166,17 +186,17 @@ const ChatInterface = () => {
                   </div>
                 </div>
                 
-                {/* New chat input area with send button */}
+                {/* New chat input area with send button - UPDATED with animated placeholder */}
                 <div className="mt-10 w-full max-w-3xl mx-auto">
                   <div className="rounded-2xl shadow-lg border border-gray-200 bg-white overflow-hidden relative">
                     <div className="py-2 px-4 flex items-center">
                       <input 
                         type="text"
-                        placeholder="ask your legal question here..."
+                        placeholder={placeholders[placeholderIndex]}
                         value={inputValue}
                         onChange={(e) => setInputValue(e.target.value)}
                         onKeyPress={handleKeyPress}
-                        className="w-full text-gray-700 outline-none text-sm placeholder-gray-400 mr-2"
+                        className="w-full text-gray-700 outline-none text-sm placeholder-gray-400 mr-2 transition-all duration-300"
                       />
                       <button 
                         onClick={handleSendMessage}
@@ -197,7 +217,13 @@ const ChatInterface = () => {
           <div className="border-t border-gray-200 p-4 bg-white">
             <div className="max-w-2xl mx-auto">
               <div className="relative">
-                <Input value={inputValue} onChange={e => setInputValue(e.target.value)} onKeyPress={handleKeyPress} placeholder="ask your legal question here..." className="w-full py-3 pr-12 text-gray-800 border-gray-300 rounded-lg focus:border-blue-700 focus:ring-1 focus:ring-blue-700" />
+                <Input 
+                  value={inputValue} 
+                  onChange={e => setInputValue(e.target.value)} 
+                  onKeyPress={handleKeyPress} 
+                  placeholder={placeholders[placeholderIndex]}
+                  className="w-full py-3 pr-12 text-gray-800 border-gray-300 rounded-lg focus:border-blue-700 focus:ring-1 focus:ring-blue-700 transition-all duration-300" 
+                />
                 <div className="absolute right-2 top-1/2 transform -translate-y-1/2 flex items-center space-x-1">
                   <Button variant="ghost" size="sm" className="text-gray-500 hover:text-blue-700" title="Voice Input">
                     <Mic size={18} />
