@@ -14,10 +14,6 @@ const ChatMessage: React.FC<ChatMessageProps> = ({ message }) => {
   const handleCopy = () => {
     navigator.clipboard.writeText(message.text);
   };
-  
-  const formatTime = (date: Date) => {
-    return new Date(date).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-  };
 
   return (
     <div className={`flex ${isUser ? 'justify-end' : 'justify-start'}`}>
@@ -32,11 +28,7 @@ const ChatMessage: React.FC<ChatMessageProps> = ({ message }) => {
           {message.text}
         </div>
         
-        <div className="mt-2 flex items-center justify-between">
-          <span className="text-xs text-gray-500">
-            {formatTime(message.timestamp)}
-          </span>
-          
+        <div className="mt-2 flex items-center justify-end">
           {!isUser && (
             <div className="flex space-x-1">
               <Button
