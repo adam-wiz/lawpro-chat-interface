@@ -21,7 +21,7 @@ const ChatMessage: React.FC<ChatMessageProps> = ({ message }) => {
         className={`max-w-[80%] md:max-w-[70%] rounded-lg p-4 ${
           isUser
             ? 'bg-gray-100 text-gray-800'
-            : 'bg-white border border-gray-200 text-gray-800'
+            : 'text-gray-800' // Removed bg-white and border for LawPro messages
         }`}
       >
         <div className="text-sm">
