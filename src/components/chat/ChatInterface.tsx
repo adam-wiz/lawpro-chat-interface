@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Search, Mic, Plus, MoreHorizontal, Clock, Lock, Users } from 'lucide-react';
+import { Search, Mic, Plus, MoreHorizontal, Clock, Lock, Users, Send } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import ConversationHistory from './ConversationHistory';
@@ -160,18 +160,25 @@ const ChatInterface = () => {
                   </div>
                 </div>
                 
-                {/* New chat input area */}
+                {/* New chat input area with send button */}
                 <div className="mt-10 w-full max-w-3xl mx-auto">
-                  <div className="rounded-2xl shadow-lg border border-gray-200 bg-white overflow-hidden">
-                    <div className="p-4">
+                  <div className="rounded-2xl shadow-lg border border-gray-200 bg-white overflow-hidden relative">
+                    <div className="p-4 flex items-center">
                       <input 
                         type="text"
                         placeholder="Ask me your legal question in everyday language..."
                         value={inputValue}
                         onChange={(e) => setInputValue(e.target.value)}
                         onKeyPress={handleKeyPress}
-                        className="w-full text-gray-700 outline-none text-sm placeholder-gray-400"
+                        className="w-full text-gray-700 outline-none text-sm placeholder-gray-400 mr-2"
                       />
+                      <button 
+                        onClick={handleSendMessage}
+                        className="bg-indigo-700 rounded-full p-2 flex items-center justify-center"
+                        aria-label="Send message"
+                      >
+                        <Send size={18} className="text-white" />
+                      </button>
                     </div>
                   </div>
                 </div>
