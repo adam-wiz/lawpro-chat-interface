@@ -160,42 +160,17 @@ const ChatInterface = () => {
                   </div>
                 </div>
                 
-                {/* New chat input area similar to the image */}
+                {/* New chat input area - UPDATED HERE */}
                 <div className="mt-10 rounded-2xl shadow-lg border border-gray-200 bg-white overflow-hidden">
-                  <div className="p-4">
+                  <div className="p-6">
                     <input 
                       type="text"
-                      placeholder="Ask anything"
+                      placeholder="Ask me your legal question in everyday language..."
                       value={inputValue}
                       onChange={(e) => setInputValue(e.target.value)}
                       onKeyPress={handleKeyPress}
                       className="w-full text-gray-700 outline-none text-lg placeholder-gray-400"
                     />
-                  </div>
-                  <div className="flex border-t border-gray-100">
-                    <button className="flex items-center justify-center p-3 hover:bg-gray-50">
-                      <Plus size={20} className="text-gray-500" />
-                    </button>
-                    <button className="flex items-center justify-center px-4 py-3 hover:bg-gray-50 border-l border-gray-100">
-                      <Search size={20} className="text-gray-500 mr-2" />
-                      <span className="text-gray-500">Search</span>
-                    </button>
-                    <button className="flex items-center justify-center px-4 py-3 hover:bg-gray-50 border-l border-gray-100">
-                      <span className="text-gray-500 mr-2">🧪</span>
-                      <span className="text-gray-500">Deep research</span>
-                    </button>
-                    <button className="flex items-center justify-center px-4 py-3 hover:bg-gray-50 border-l border-gray-100">
-                      <span className="text-gray-500 mr-2">🎨</span>
-                      <span className="text-gray-500">Create image</span>
-                    </button>
-                    <button className="flex items-center justify-center p-3 hover:bg-gray-50 border-l border-gray-100 ml-auto">
-                      <MoreHorizontal size={20} className="text-gray-500" />
-                    </button>
-                    <div className="flex items-center justify-center p-1 ml-2 mr-2">
-                      <div className="rounded-full bg-black p-3">
-                        <Mic size={20} className="text-white" />
-                      </div>
-                    </div>
                   </div>
                 </div>
               </div>
