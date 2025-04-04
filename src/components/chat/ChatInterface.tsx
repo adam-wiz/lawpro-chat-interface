@@ -29,32 +29,35 @@ const ChatInterface = () => {
   const [placeholderIndex, setPlaceholderIndex] = useState(0);
   const isMobile = useIsMobile();
 
-  // Array of rotating placeholder questions - UPDATED with more legal categories
+  // Array of rotating placeholder questions - Rebalanced with more criminal and personal injury questions
   const placeholders = [
     "Ask your legal question here...",
+    // Criminal Law - More focus
     "Do I need to tell my employer about a DUI?",
-    "What's the average settlement for a truck accident?",
-    "How do I fight a wrongful eviction?",
-    "Can I sue my neighbor for property damage?",
-    "What happens if I can't pay child support?",
-    // Family Law
-    "How is child custody determined in my state?",
-    "What's the difference between legal separation and divorce?",
-    "Can I modify my existing child support agreement?",
-    "How long does the divorce process typically take?",
-    "What are grandparents' rights regarding visitation?",
-    // Criminal Law
     "What's the difference between a felony and misdemeanor?",
     "Should I accept a plea bargain in my case?",
     "How can I get my criminal record expunged?",
     "What are my rights during a police search?",
     "Can a DUI be reduced to a lesser charge?",
-    // Personal Injury
+    "What happens if I miss a court appearance?",
+    "How does probation work?",
+    "What's the statute of limitations for theft?",
+    // Personal Injury - More focus
+    "What's the average settlement for a truck accident?",
     "How long do I have to file a personal injury claim?",
     "Who pays my medical bills after a car accident?",
     "Can I sue if I slipped and fell in a store?",
     "What compensation can I get for a workplace injury?",
     "How does insurance factor into my injury case?",
+    "Can I be compensated for pain and suffering?",
+    "What if I was partially at fault in an accident?",
+    "Do I need a lawyer for a minor injury claim?",
+    // Family Law - Just a few questions
+    "How is child custody determined in my state?",
+    "What happens if I can't pay child support?",
+    "How do I fight a wrongful eviction?",
+    // Other Legal Issues
+    "Can I sue my neighbor for property damage?",
   ];
 
   // Effect for rotating placeholders
