@@ -1,27 +1,32 @@
+
 import React, { useState } from 'react';
-import { Search, Mic, Copy, ThumbsUp, ThumbsDown } from 'lucide-react';
+import { Search, Mic, Copy, ThumbsUp, ThumbsDown, Clock, Lock, Users } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import ConversationHistory from './ConversationHistory';
 import ChatMessage from './ChatMessage';
+
 export interface Conversation {
   id: string;
   title: string;
   createdAt: Date;
   messages: Message[];
 }
+
 export interface Message {
   id: string;
   sender: 'user' | 'lawpro';
   text: string;
   timestamp: Date;
 }
+
 const ChatInterface = () => {
   const [conversations, setConversations] = useState<Conversation[]>([]);
   const [currentConversation, setCurrentConversation] = useState<Conversation | null>(null);
   const [inputValue, setInputValue] = useState('');
   const [userName, setUserName] = useState('');
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
   const handleSendMessage = () => {
     if (!inputValue.trim()) return;
     const newMessage: Message = {
@@ -84,18 +89,22 @@ const ChatInterface = () => {
     }
     setInputValue('');
   };
+
   const startNewConversation = () => {
     setCurrentConversation(null);
     setInputValue('');
   };
+
   const handleKeyPress = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter') {
       handleSendMessage();
     }
   };
+
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
+
   return <div className="flex h-screen bg-white">
       {/* Sidebar for conversation history */}
       <div className={`bg-gray-50 border-r border-gray-200 transition-all duration-300 ${isSidebarOpen ? 'w-64' : 'w-0 md:w-64'} overflow-hidden`}>
@@ -131,6 +140,28 @@ const ChatInterface = () => {
                 <p className="text-lg font-thin text-zinc-500">
                   Ask me below about your situation, and I'll explain what it all means in language that actually makes sense.
                 </p>
+                
+                {/* Added feature items */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
+                  <div className="flex flex-col items-center p-3">
+                    <div className="bg-blue-50 p-3 rounded-full mb-3">
+                      <Clock size={24} className="text-blue-600" />
+                    </div>
+                    <h3 className="font-medium text-gray-800">Available 24/7</h3>
+                  </div>
+                  <div className="flex flex-col items-center p-3">
+                    <div className="bg-blue-50 p-3 rounded-full mb-3">
+                      <Lock size={24} className="text-blue-600" />
+                    </div>
+                    <h3 className="font-medium text-gray-800">Chats Securely Encrypted</h3>
+                  </div>
+                  <div className="flex flex-col items-center p-3">
+                    <div className="bg-blue-50 p-3 rounded-full mb-3">
+                      <Users size={24} className="text-blue-600" />
+                    </div>
+                    <h3 className="font-medium text-gray-800">For The People</h3>
+                  </div>
+                </div>
               </div>
             </div>}
         </div>
@@ -154,4 +185,5 @@ const ChatInterface = () => {
       </div>
     </div>;
 };
+
 export default ChatInterface;
