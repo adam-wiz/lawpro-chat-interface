@@ -162,14 +162,14 @@ const ChatInterface = () => {
                 
                 {/* New chat input area - UPDATED HERE */}
                 <div className="mt-10 rounded-2xl shadow-lg border border-gray-200 bg-white overflow-hidden">
-                  <div className="p-6">
+                  <div className="p-4">
                     <input 
                       type="text"
                       placeholder="Ask me your legal question in everyday language..."
                       value={inputValue}
                       onChange={(e) => setInputValue(e.target.value)}
                       onKeyPress={handleKeyPress}
-                      className="w-full text-gray-700 outline-none text-lg placeholder-gray-400"
+                      className="w-full text-gray-700 outline-none text-sm placeholder-gray-400"
                     />
                   </div>
                 </div>
