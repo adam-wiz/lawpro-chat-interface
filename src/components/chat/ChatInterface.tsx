@@ -166,7 +166,7 @@ const ChatInterface = () => {
                     <div className="py-2 px-4 flex items-center">
                       <input 
                         type="text"
-                        placeholder="Ask me your legal question in everyday language..."
+                        placeholder="ask your legal question here..."
                         value={inputValue}
                         onChange={(e) => setInputValue(e.target.value)}
                         onKeyPress={handleKeyPress}
@@ -191,7 +191,7 @@ const ChatInterface = () => {
           <div className="border-t border-gray-200 p-4 bg-white">
             <div className="max-w-2xl mx-auto">
               <div className="relative">
-                <Input value={inputValue} onChange={e => setInputValue(e.target.value)} onKeyPress={handleKeyPress} placeholder="Ask your legal question in everyday language..." className="w-full py-3 pr-12 text-gray-800 border-gray-300 rounded-lg focus:border-blue-700 focus:ring-1 focus:ring-blue-700" />
+                <Input value={inputValue} onChange={e => setInputValue(e.target.value)} onKeyPress={handleKeyPress} placeholder="ask your legal question here..." className="w-full py-3 pr-12 text-gray-800 border-gray-300 rounded-lg focus:border-blue-700 focus:ring-1 focus:ring-blue-700" />
                 <div className="absolute right-2 top-1/2 transform -translate-y-1/2 flex items-center space-x-1">
                   <Button variant="ghost" size="sm" className="text-gray-500 hover:text-blue-700" title="Voice Input">
                     <Mic size={18} />
