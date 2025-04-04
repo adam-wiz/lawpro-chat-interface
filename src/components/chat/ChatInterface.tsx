@@ -1,27 +1,32 @@
+
 import React, { useState } from 'react';
-import { Search, Mic, Copy, ThumbsUp, ThumbsDown, Clock, Lock, Users, Shield } from 'lucide-react';
+import { Search, Mic, Plus, MoreHorizontal, Clock, Lock, Users, Send } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import ConversationHistory from './ConversationHistory';
 import ChatMessage from './ChatMessage';
+
 export interface Conversation {
   id: string;
   title: string;
   createdAt: Date;
   messages: Message[];
 }
+
 export interface Message {
   id: string;
   sender: 'user' | 'lawpro';
   text: string;
   timestamp: Date;
 }
+
 const ChatInterface = () => {
   const [conversations, setConversations] = useState<Conversation[]>([]);
   const [currentConversation, setCurrentConversation] = useState<Conversation | null>(null);
   const [inputValue, setInputValue] = useState('');
   const [userName, setUserName] = useState('');
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
   const handleSendMessage = () => {
     if (!inputValue.trim()) return;
     const newMessage: Message = {
@@ -30,6 +35,7 @@ const ChatInterface = () => {
       text: inputValue,
       timestamp: new Date()
     };
+
     if (!currentConversation) {
       // Create a new conversation
       const newConversation: Conversation = {
@@ -84,18 +90,22 @@ const ChatInterface = () => {
     }
     setInputValue('');
   };
+
   const startNewConversation = () => {
     setCurrentConversation(null);
     setInputValue('');
   };
+
   const handleKeyPress = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter') {
       handleSendMessage();
     }
   };
+
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
+
   return <div className="flex h-screen bg-white">
       {/* Sidebar for conversation history */}
       <div className={`bg-gray-50 border-r border-gray-200 transition-all duration-300 ${isSidebarOpen ? 'w-64' : 'w-0 md:w-64'} overflow-hidden`}>
@@ -124,7 +134,7 @@ const ChatInterface = () => {
           {currentConversation ? <div className="max-w-2xl mx-auto space-y-4">
               {currentConversation.messages.map(message => <ChatMessage key={message.id} message={message} />)}
             </div> : <div className="h-full flex flex-col items-center justify-center">
-              <div className="max-w-md w-full text-center space-y-6">
+              <div className="max-w-2xl w-full text-center space-y-6 px-4">
                 <h1 className="font-semibold text-4xl text-zinc-900">
                   Have a legal question?
                 </h1>
@@ -132,44 +142,70 @@ const ChatInterface = () => {
                   Ask me below about your situation, and I'll explain what it all means in language that actually makes sense.
                 </p>
                 
-                {/* Updated feature items to display horizontally */}
-                <div className="grid grid-cols-3 gap-3 mt-8">
-                  <div className="flex items-center justify-center bg-[#FFF9E5] border border-[#E9DFA8] rounded-full py-3 px-4">
-                    <Clock className="text-amber-700 mr-2" size={18} />
-                    <span className="text-amber-800 font-medium text-sm">Available 24/7</span>
+                {/* Feature items in a horizontal row - UPDATED HERE */}
+                <div className="flex justify-center gap-4 mt-8 max-w-md mx-auto">
+                  <div className="flex items-center justify-center bg-[#FFF9E5] border border-[#E9DFA8] rounded-full py-1.5 px-3 whitespace-nowrap">
+                    <Clock className="text-amber-700 mr-1.5" size={16} />
+                    <span className="text-amber-800 font-medium text-xs">Available 24/7</span>
                   </div>
                   
-                  <div className="flex items-center justify-center bg-[#FFF9E5] border border-[#E9DFA8] rounded-full py-3 px-4">
-                    <Lock className="text-amber-700 mr-2" size={18} />
-                    <span className="text-amber-800 font-medium text-sm">Securely Encrypted</span>
+                  <div className="flex items-center justify-center bg-[#FFF9E5] border border-[#E9DFA8] rounded-full py-1.5 px-3 whitespace-nowrap">
+                    <Lock className="text-amber-700 mr-1.5" size={16} />
+                    <span className="text-amber-800 font-medium text-xs">Securely Encrypted</span>
                   </div>
                   
-                  <div className="flex items-center justify-center bg-[#FFF9E5] border border-[#E9DFA8] rounded-full py-3 px-4">
-                    <Users className="text-amber-700 mr-2" size={18} />
-                    <span className="text-amber-800 font-medium text-sm">For The People</span>
+                  <div className="flex items-center justify-center bg-[#FFF9E5] border border-[#E9DFA8] rounded-full py-1.5 px-3 whitespace-nowrap">
+                    <Users className="text-amber-700 mr-1.5" size={16} />
+                    <span className="text-amber-800 font-medium text-xs">For The People</span>
+                  </div>
+                </div>
+                
+                {/* New chat input area with send button */}
+                <div className="mt-10 w-full max-w-3xl mx-auto">
+                  <div className="rounded-2xl shadow-lg border border-gray-200 bg-white overflow-hidden relative">
+                    <div className="p-4 flex items-center">
+                      <input 
+                        type="text"
+                        placeholder="Ask me your legal question in everyday language..."
+                        value={inputValue}
+                        onChange={(e) => setInputValue(e.target.value)}
+                        onKeyPress={handleKeyPress}
+                        className="w-full text-gray-700 outline-none text-sm placeholder-gray-400 mr-2"
+                      />
+                      <button 
+                        onClick={handleSendMessage}
+                        className="bg-indigo-700 rounded-md p-2 flex items-center justify-center"
+                        aria-label="Send message"
+                      >
+                        <Send size={18} className="text-white" />
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>}
         </div>
 
-        {/* Input area */}
-        <div className="border-t border-gray-200 p-4 bg-white py-[6px]">
-          <div className="max-w-2xl mx-auto">
-            <div className="relative">
-              <Input value={inputValue} onChange={e => setInputValue(e.target.value)} onKeyPress={handleKeyPress} placeholder="Ask your legal question in everyday language..." className="w-full py-3 pr-12 text-gray-800 border-gray-300 rounded-lg focus:border-blue-700 focus:ring-1 focus:ring-blue-700" />
-              <div className="absolute right-2 top-1/2 transform -translate-y-1/2 flex items-center space-x-1">
-                <Button variant="ghost" size="sm" className="text-gray-500 hover:text-blue-700" title="Voice Input">
-                  <Mic size={18} />
-                </Button>
-                <Button variant="ghost" size="sm" className="text-gray-500 hover:text-blue-700" onClick={handleSendMessage} title="Send Message">
-                  <Search size={18} />
-                </Button>
+        {/* Input area at bottom */}
+        {currentConversation && (
+          <div className="border-t border-gray-200 p-4 bg-white">
+            <div className="max-w-2xl mx-auto">
+              <div className="relative">
+                <Input value={inputValue} onChange={e => setInputValue(e.target.value)} onKeyPress={handleKeyPress} placeholder="Ask your legal question in everyday language..." className="w-full py-3 pr-12 text-gray-800 border-gray-300 rounded-lg focus:border-blue-700 focus:ring-1 focus:ring-blue-700" />
+                <div className="absolute right-2 top-1/2 transform -translate-y-1/2 flex items-center space-x-1">
+                  <Button variant="ghost" size="sm" className="text-gray-500 hover:text-blue-700" title="Voice Input">
+                    <Mic size={18} />
+                  </Button>
+                  <Button variant="ghost" size="sm" className="text-gray-500 hover:text-blue-700" onClick={handleSendMessage} title="Send Message">
+                    <Search size={18} />
+                  </Button>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        )}
       </div>
     </div>;
 };
+
 export default ChatInterface;
