@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Search, Mic, Copy, ThumbsUp, ThumbsDown, Clock, Lock, Users } from 'lucide-react';
+import { Search, Mic, Copy, ThumbsUp, ThumbsDown, Clock, Lock, Users, Shield } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import ConversationHistory from './ConversationHistory';
@@ -141,25 +141,26 @@ const ChatInterface = () => {
                   Ask me below about your situation, and I'll explain what it all means in language that actually makes sense.
                 </p>
                 
-                {/* Added feature items */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
-                  <div className="flex flex-col items-center p-3">
-                    <div className="bg-blue-50 p-3 rounded-full mb-3">
-                      <Clock size={24} className="text-blue-600" />
-                    </div>
-                    <h3 className="font-medium text-gray-800">Available 24/7</h3>
+                {/* Updated feature items to match the badge */}
+                <div className="grid grid-cols-1 gap-4 mt-8">
+                  <div className="flex items-center justify-center bg-[#FFF9E5] border border-[#E9DFA8] rounded-full py-3 px-6">
+                    <Shield className="text-amber-700 mr-2" size={20} />
+                    <span className="text-amber-800 font-medium">LawPro Verified</span>
                   </div>
-                  <div className="flex flex-col items-center p-3">
-                    <div className="bg-blue-50 p-3 rounded-full mb-3">
-                      <Lock size={24} className="text-blue-600" />
-                    </div>
-                    <h3 className="font-medium text-gray-800">Chats Securely Encrypted</h3>
+                  
+                  <div className="flex items-center justify-center bg-[#FFF9E5] border border-[#E9DFA8] rounded-full py-3 px-6">
+                    <Clock className="text-amber-700 mr-2" size={20} />
+                    <span className="text-amber-800 font-medium">Available 24/7</span>
                   </div>
-                  <div className="flex flex-col items-center p-3">
-                    <div className="bg-blue-50 p-3 rounded-full mb-3">
-                      <Users size={24} className="text-blue-600" />
-                    </div>
-                    <h3 className="font-medium text-gray-800">For The People</h3>
+                  
+                  <div className="flex items-center justify-center bg-[#FFF9E5] border border-[#E9DFA8] rounded-full py-3 px-6">
+                    <Lock className="text-amber-700 mr-2" size={20} />
+                    <span className="text-amber-800 font-medium">Chats Securely Encrypted</span>
+                  </div>
+                  
+                  <div className="flex items-center justify-center bg-[#FFF9E5] border border-[#E9DFA8] rounded-full py-3 px-6">
+                    <Users className="text-amber-700 mr-2" size={20} />
+                    <span className="text-amber-800 font-medium">For The People</span>
                   </div>
                 </div>
               </div>
