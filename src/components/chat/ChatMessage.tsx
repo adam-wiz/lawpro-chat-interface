@@ -20,7 +20,7 @@ const ChatMessage: React.FC<ChatMessageProps> = ({ message }) => {
       <div
         className={`max-w-[80%] md:max-w-[70%] ${
           isUser
-            ? 'bg-blue-500 text-white py-2 px-3 rounded-3xl' // More rounded corners and adjusted padding
+            ? 'bg-blue-500 text-white py-2 px-3 rounded-2xl' // Adjusted to rounded-2xl for less rounded corners
             : 'text-gray-800' // No background for LawPro messages
         }`}
       >
