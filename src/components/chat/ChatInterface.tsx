@@ -136,7 +136,7 @@ const ChatInterface = () => {
             </div> : <div className="h-full flex flex-col items-center justify-center">
               <div className="max-w-2xl w-full text-center space-y-6 px-4">
                 <h1 className="font-semibold text-4xl text-zinc-900">
-                  What can I help with?
+                  Have a legal question?
                 </h1>
                 <p className="text-lg font-thin text-zinc-500">
                   Ask me below about your situation, and I'll explain what it all means in language that actually makes sense.
