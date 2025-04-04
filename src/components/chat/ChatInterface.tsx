@@ -175,10 +175,10 @@ const ChatInterface = () => {
             <div className="h-full flex flex-col items-center justify-center">
               <div className="max-w-md w-full text-center space-y-6">
                 <h1 className="text-3xl font-semibold text-gray-800">
-                  What can I help with?
+                  Have a legal question?
                 </h1>
                 <p className="text-gray-600">
-                  Ask me any legal question in everyday language, and I'll translate the legal jargon into words you can understand.
+                  Ask me below about your situation, and I'll explain what it all means in language that actually makes sense.
                 </p>
               </div>
             </div>
