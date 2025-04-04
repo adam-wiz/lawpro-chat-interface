@@ -1,10 +1,10 @@
-
 import React, { useState } from 'react';
 import { Search, Mic, Plus, MoreHorizontal, Clock, Lock, Users, Send } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import ConversationHistory from './ConversationHistory';
 import ChatMessage from './ChatMessage';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 export interface Conversation {
   id: string;
@@ -26,6 +26,7 @@ const ChatInterface = () => {
   const [inputValue, setInputValue] = useState('');
   const [userName, setUserName] = useState('');
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const isMobile = useIsMobile();
 
   const handleSendMessage = () => {
     if (!inputValue.trim()) return;
@@ -142,8 +143,8 @@ const ChatInterface = () => {
                   Ask me below about your situation, and I'll explain what it all means in language that actually makes sense.
                 </p>
                 
-                {/* Feature items in a horizontal row - UPDATED HERE */}
-                <div className="flex justify-center gap-4 mt-8 max-w-md mx-auto">
+                {/* Feature items in a responsive layout */}
+                <div className="flex flex-col sm:flex-row justify-center gap-2 sm:gap-4 mt-8 mx-auto">
                   <div className="flex items-center justify-center bg-[#FFF9E5] border border-[#E9DFA8] rounded-full py-1.5 px-3 whitespace-nowrap">
                     <Clock className="text-amber-700 mr-1.5" size={16} />
                     <span className="text-amber-800 font-medium text-xs">Available 24/7</span>
