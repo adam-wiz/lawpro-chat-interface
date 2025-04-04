@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -20,9 +19,9 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				sans: ['Circular Std Book', 'sans-serif'],
-				medium: ['Circular Std Medium', 'sans-serif'],
-				bold: ['Circular Std Bold', 'sans-serif'],
+				sans: ['SF Pro Display', 'system-ui', 'sans-serif'],
+				medium: ['SF Pro Display', 'system-ui', 'sans-serif'],
+				bold: ['SF Pro Display', 'system-ui', 'sans-serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
