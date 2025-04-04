@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Search, Mic, Copy, ThumbsUp, ThumbsDown, Clock, Lock, Users, Shield } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -143,10 +142,6 @@ const ChatInterface = () => {
                 
                 {/* Updated feature items to match the badge */}
                 <div className="grid grid-cols-1 gap-4 mt-8">
-                  <div className="flex items-center justify-center bg-[#FFF9E5] border border-[#E9DFA8] rounded-full py-3 px-6">
-                    <Shield className="text-amber-700 mr-2" size={20} />
-                    <span className="text-amber-800 font-medium">LawPro Verified</span>
-                  </div>
                   
                   <div className="flex items-center justify-center bg-[#FFF9E5] border border-[#E9DFA8] rounded-full py-3 px-6">
                     <Clock className="text-amber-700 mr-2" size={20} />
