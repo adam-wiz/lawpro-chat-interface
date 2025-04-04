@@ -174,7 +174,7 @@ const ChatInterface = () => {
                       />
                       <button 
                         onClick={handleSendMessage}
-                        className="bg-indigo-700 rounded-full p-2 flex items-center justify-center"
+                        className="bg-indigo-700 rounded-md p-2 flex items-center justify-center"
                         aria-label="Send message"
                       >
                         <Send size={18} className="text-white" />
