@@ -27,6 +27,7 @@ const ChatInterface = () => {
   const [userName, setUserName] = useState('');
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [placeholderIndex, setPlaceholderIndex] = useState(0);
+  const [animatePlaceholder, setAnimatePlaceholder] = useState(true);
   const isMobile = useIsMobile();
 
   // Array of rotating placeholder questions - Rebalanced with more criminal and personal injury questions
@@ -60,17 +61,30 @@ const ChatInterface = () => {
     "Can I sue my neighbor for property damage?",
   ];
 
-  // Effect for rotating placeholders
+  // Get the current placeholder based on animation state
+  const getCurrentPlaceholder = () => {
+    return animatePlaceholder ? placeholders[placeholderIndex] : "Ask your legal question here...";
+  };
+
+  // Effect for rotating placeholders - only active when animatePlaceholder is true
   useEffect(() => {
+    if (!animatePlaceholder) return;
+    
     const interval = setInterval(() => {
       setPlaceholderIndex((prevIndex) => (prevIndex + 1) % placeholders.length);
     }, 3000); // Change every 3 seconds
 
     return () => clearInterval(interval);
-  }, []);
+  }, [animatePlaceholder]);
 
   const handleSendMessage = () => {
     if (!inputValue.trim()) return;
+    
+    // Turn off placeholder animation after first message
+    if (animatePlaceholder) {
+      setAnimatePlaceholder(false);
+    }
+    
     const newMessage: Message = {
       id: `msg-${Date.now()}`,
       sender: 'user',
@@ -136,6 +150,8 @@ const ChatInterface = () => {
   const startNewConversation = () => {
     setCurrentConversation(null);
     setInputValue('');
+    // Reset animation when starting a new conversation
+    setAnimatePlaceholder(true);
   };
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
@@ -212,7 +228,7 @@ const ChatInterface = () => {
                     <div className="py-2 px-4 flex items-center">
                       <input 
                         type="text"
-                        placeholder={placeholders[placeholderIndex]}
+                        placeholder={getCurrentPlaceholder()}
                         value={inputValue}
                         onChange={(e) => setInputValue(e.target.value)}
                         onKeyPress={handleKeyPress}
@@ -241,7 +257,7 @@ const ChatInterface = () => {
                   value={inputValue} 
                   onChange={e => setInputValue(e.target.value)} 
                   onKeyPress={handleKeyPress} 
-                  placeholder={placeholders[placeholderIndex]}
+                  placeholder={getCurrentPlaceholder()}
                   className="w-full py-3 pr-12 text-gray-800 border-gray-300 rounded-lg focus:border-blue-700 focus:ring-1 focus:ring-blue-700 transition-all duration-300" 
                 />
                 <div className="absolute right-2 top-1/2 transform -translate-y-1/2 flex items-center space-x-1">
