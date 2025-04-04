@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Search, Mic, Copy, ThumbsUp, ThumbsDown, Clock, Lock, Users, Shield } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -140,22 +141,21 @@ const ChatInterface = () => {
                   Ask me below about your situation, and I'll explain what it all means in language that actually makes sense.
                 </p>
                 
-                {/* Updated feature items to match the badge */}
-                <div className="grid grid-cols-1 gap-4 mt-8">
-                  
-                  <div className="flex items-center justify-center bg-[#FFF9E5] border border-[#E9DFA8] rounded-full py-3 px-6">
-                    <Clock className="text-amber-700 mr-2" size={20} />
-                    <span className="text-amber-800 font-medium">Available 24/7</span>
+                {/* Updated feature items to display horizontally */}
+                <div className="grid grid-cols-3 gap-3 mt-8">
+                  <div className="flex items-center justify-center bg-[#FFF9E5] border border-[#E9DFA8] rounded-full py-3 px-4">
+                    <Clock className="text-amber-700 mr-2" size={18} />
+                    <span className="text-amber-800 font-medium text-sm">Available 24/7</span>
                   </div>
                   
-                  <div className="flex items-center justify-center bg-[#FFF9E5] border border-[#E9DFA8] rounded-full py-3 px-6">
-                    <Lock className="text-amber-700 mr-2" size={20} />
-                    <span className="text-amber-800 font-medium">Chats Securely Encrypted</span>
+                  <div className="flex items-center justify-center bg-[#FFF9E5] border border-[#E9DFA8] rounded-full py-3 px-4">
+                    <Lock className="text-amber-700 mr-2" size={18} />
+                    <span className="text-amber-800 font-medium text-sm">Securely Encrypted</span>
                   </div>
                   
-                  <div className="flex items-center justify-center bg-[#FFF9E5] border border-[#E9DFA8] rounded-full py-3 px-6">
-                    <Users className="text-amber-700 mr-2" size={20} />
-                    <span className="text-amber-800 font-medium">For The People</span>
+                  <div className="flex items-center justify-center bg-[#FFF9E5] border border-[#E9DFA8] rounded-full py-3 px-4">
+                    <Users className="text-amber-700 mr-2" size={18} />
+                    <span className="text-amber-800 font-medium text-sm">For The People</span>
                   </div>
                 </div>
               </div>
