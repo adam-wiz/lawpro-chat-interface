@@ -163,7 +163,7 @@ const ChatInterface = () => {
                 {/* New chat input area with send button */}
                 <div className="mt-10 w-full max-w-3xl mx-auto">
                   <div className="rounded-2xl shadow-lg border border-gray-200 bg-white overflow-hidden relative">
-                    <div className="p-4 flex items-center">
+                    <div className="py-2 px-4 flex items-center">
                       <input 
                         type="text"
                         placeholder="Ask me your legal question in everyday language..."
