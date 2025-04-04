@@ -1,32 +1,27 @@
-
 import React, { useState } from 'react';
 import { Search, Mic, Copy, ThumbsUp, ThumbsDown, Clock, Lock, Users, Shield } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import ConversationHistory from './ConversationHistory';
 import ChatMessage from './ChatMessage';
-
 export interface Conversation {
   id: string;
   title: string;
   createdAt: Date;
   messages: Message[];
 }
-
 export interface Message {
   id: string;
   sender: 'user' | 'lawpro';
   text: string;
   timestamp: Date;
 }
-
 const ChatInterface = () => {
   const [conversations, setConversations] = useState<Conversation[]>([]);
   const [currentConversation, setCurrentConversation] = useState<Conversation | null>(null);
   const [inputValue, setInputValue] = useState('');
   const [userName, setUserName] = useState('');
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-
   const handleSendMessage = () => {
     if (!inputValue.trim()) return;
     const newMessage: Message = {
@@ -89,22 +84,18 @@ const ChatInterface = () => {
     }
     setInputValue('');
   };
-
   const startNewConversation = () => {
     setCurrentConversation(null);
     setInputValue('');
   };
-
   const handleKeyPress = (e: React.KeyboardEvent) => {
     if (e.key === 'Enter') {
       handleSendMessage();
     }
   };
-
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
-
   return <div className="flex h-screen bg-white">
       {/* Sidebar for conversation history */}
       <div className={`bg-gray-50 border-r border-gray-200 transition-all duration-300 ${isSidebarOpen ? 'w-64' : 'w-0 md:w-64'} overflow-hidden`}>
@@ -145,17 +136,17 @@ const ChatInterface = () => {
                 <div className="grid grid-cols-3 gap-3 mt-8">
                   <div className="flex items-center justify-center bg-[#FFF9E5] border border-[#E9DFA8] rounded-full py-3 px-4">
                     <Clock className="text-amber-700 mr-2" size={18} />
-                    <span className="text-amber-800 font-medium text-sm">Available 24/7</span>
+                    <span className="text-amber-800 font-medium text-xs">Available 24/7</span>
                   </div>
                   
                   <div className="flex items-center justify-center bg-[#FFF9E5] border border-[#E9DFA8] rounded-full py-3 px-4">
                     <Lock className="text-amber-700 mr-2" size={18} />
-                    <span className="text-amber-800 font-medium text-sm">Securely Encrypted</span>
+                    <span className="text-amber-800 font-medium text-xs">Securely Encrypted</span>
                   </div>
                   
                   <div className="flex items-center justify-center bg-[#FFF9E5] border border-[#E9DFA8] rounded-full py-3 px-4">
                     <Users className="text-amber-700 mr-2" size={18} />
-                    <span className="text-amber-800 font-medium text-sm">For The People</span>
+                    <span className="text-amber-800 font-medium text-xs">For The People</span>
                   </div>
                 </div>
               </div>
@@ -181,5 +172,4 @@ const ChatInterface = () => {
       </div>
     </div>;
 };
-
 export default ChatInterface;
