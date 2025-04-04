@@ -28,7 +28,7 @@ const ChatMessage: React.FC<ChatMessageProps> = ({ message }) => {
           {message.text}
         </div>
         
-        <div className="mt-2 flex items-center justify-end">
+        <div className="mt-2 flex items-center justify-start">
           {!isUser && (
             <div className="flex space-x-1">
               <Button
