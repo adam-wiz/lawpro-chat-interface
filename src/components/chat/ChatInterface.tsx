@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Search, Mic, Copy, ThumbsUp, ThumbsDown, Clock, Lock, Users, Shield } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -132,20 +133,20 @@ const ChatInterface = () => {
                   Ask me below about your situation, and I'll explain what it all means in language that actually makes sense.
                 </p>
                 
-                {/* Updated feature items to display horizontally */}
-                <div className="grid grid-cols-3 gap-3 mt-8">
-                  <div className="flex items-center justify-center bg-[#FFF9E5] border border-[#E9DFA8] rounded-full py-3 px-4">
-                    <Clock className="text-amber-700 mr-2" size={18} />
+                {/* Updated feature items to display horizontally and fit on one line with reduced padding */}
+                <div className="flex justify-between gap-2 mt-8">
+                  <div className="flex items-center justify-center bg-[#FFF9E5] border border-[#E9DFA8] rounded-full py-1.5 px-3 whitespace-nowrap">
+                    <Clock className="text-amber-700 mr-1.5" size={16} />
                     <span className="text-amber-800 font-medium text-xs">Available 24/7</span>
                   </div>
                   
-                  <div className="flex items-center justify-center bg-[#FFF9E5] border border-[#E9DFA8] rounded-full py-3 px-4">
-                    <Lock className="text-amber-700 mr-2" size={18} />
+                  <div className="flex items-center justify-center bg-[#FFF9E5] border border-[#E9DFA8] rounded-full py-1.5 px-3 whitespace-nowrap">
+                    <Lock className="text-amber-700 mr-1.5" size={16} />
                     <span className="text-amber-800 font-medium text-xs">Securely Encrypted</span>
                   </div>
                   
-                  <div className="flex items-center justify-center bg-[#FFF9E5] border border-[#E9DFA8] rounded-full py-3 px-4">
-                    <Users className="text-amber-700 mr-2" size={18} />
+                  <div className="flex items-center justify-center bg-[#FFF9E5] border border-[#E9DFA8] rounded-full py-1.5 px-3 whitespace-nowrap">
+                    <Users className="text-amber-700 mr-1.5" size={16} />
                     <span className="text-amber-800 font-medium text-xs">For The People</span>
                   </div>
                 </div>
