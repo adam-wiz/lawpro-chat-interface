@@ -134,7 +134,7 @@ const ChatInterface = () => {
           {currentConversation ? <div className="max-w-2xl mx-auto space-y-4">
               {currentConversation.messages.map(message => <ChatMessage key={message.id} message={message} />)}
             </div> : <div className="h-full flex flex-col items-center justify-center">
-              <div className="max-w-md w-full text-center space-y-6">
+              <div className="max-w-2xl w-full text-center space-y-6 px-4">
                 <h1 className="font-semibold text-4xl text-zinc-900">
                   What can I help with?
                 </h1>
@@ -161,16 +161,18 @@ const ChatInterface = () => {
                 </div>
                 
                 {/* New chat input area - UPDATED HERE */}
-                <div className="mt-10 rounded-2xl shadow-lg border border-gray-200 bg-white overflow-hidden w-full max-w-xl mx-auto">
-                  <div className="p-4">
-                    <input 
-                      type="text"
-                      placeholder="Ask me your legal question in everyday language..."
-                      value={inputValue}
-                      onChange={(e) => setInputValue(e.target.value)}
-                      onKeyPress={handleKeyPress}
-                      className="w-full text-gray-700 outline-none text-sm placeholder-gray-400"
-                    />
+                <div className="mt-10 w-full max-w-3xl mx-auto">
+                  <div className="rounded-2xl shadow-lg border border-gray-200 bg-white overflow-hidden">
+                    <div className="p-4">
+                      <input 
+                        type="text"
+                        placeholder="Ask me your legal question in everyday language..."
+                        value={inputValue}
+                        onChange={(e) => setInputValue(e.target.value)}
+                        onKeyPress={handleKeyPress}
+                        className="w-full text-gray-700 outline-none text-sm placeholder-gray-400"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
