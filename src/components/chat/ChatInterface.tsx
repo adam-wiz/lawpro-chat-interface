@@ -161,7 +161,7 @@ const ChatInterface = () => {
                 </div>
                 
                 {/* New chat input area - UPDATED HERE */}
-                <div className="mt-10 rounded-2xl shadow-lg border border-gray-200 bg-white overflow-hidden">
+                <div className="mt-10 rounded-2xl shadow-lg border border-gray-200 bg-white overflow-hidden w-full max-w-xl mx-auto">
                   <div className="p-4">
                     <input 
                       type="text"
